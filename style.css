@@ -117,12 +117,12 @@ body {
 
 /* Game 1 の背景 */
 .game1 {
-  background-image: url("images/fukuyo.png");
+  background-image: url("fukuyo.png");
 }
 
 /* Game 2 の背景 */
 .game2 {
-  background-image: url("images/shogi.png");
+  background-image: url("shogi.png");
 }
 
 .card-content {
