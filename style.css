@@ -1,0 +1,169 @@
+/* 全体ベース */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 背景のグラデーションアニメーション */
+body {
+  height: 100vh;
+  background: linear-gradient(45deg, #ff66cc, #66ccff, #99ff66, #ffcc66);
+  background-size: 600% 600%;
+  animation: gradientBG 10s ease infinite;
+  overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ローディングスクリーン */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+
+.loading-text {
+  font-size: 2rem;
+  color: #333;
+  animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+}
+
+/* メインコンテンツ */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.content.fade-in {
+  opacity: 1;
+}
+
+/* タイトル */
+.title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  margin-bottom: 2rem;
+}
+
+/* ゲームリンクのレイアウト */
+.game-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* 各ゲームカード */
+.game-card {
+  width: 250px;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Game 1 の背景 */
+.game1 {
+  background-image: url("/images/0to100.png");
+}
+
+/* Game 2 の背景 */
+.game2 {
+  background-image: url("images/shogi.png");
+}
+
+.card-content {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* テキストのクリックを防ぐ（親の a タグのクリックを有効にする） */
+.card-content * {
+  pointer-events: none;
+}
+
+/* タイトルのリンク */
+.card-content h2 p {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* ==== スマホ向けの調整（横幅600px以下） ==== */
+@media (max-width: 600px) {
+  .game-links {
+    flex-direction: column; /* 縦並びに */
+    gap: 1rem; /* カードの間隔を少し狭く */
+    width: 90%; /* 画面幅の90%に */
+    margin: 0 auto; /* 中央寄せ */
+  }
+
+  .game-card {
+    width: 100%; /* 画面いっぱいの幅に */
+    height: 200px; /* ちょっと高さを増やす */
+  }
+
+  .card-content {
+    padding: 0.5rem; /* テキスト部分を少しコンパクトに */
+  }
+
+  .card-content h2 a {
+    font-size: 1.2rem; /* タイトルを少し小さく */
+  }
+}

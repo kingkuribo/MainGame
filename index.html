@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>My Games</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="loading-screen">
+    <div class="loading-text">Loading...</div>
+  </div>
+
+  <main class="content">
+    <h1 class="title">Welcome to My Games!</h1>
+    <p class="subtitle">二つのゲームにアクセスできます</p>
+
+    <!-- ゲーム紹介部分 -->
+    <div class="game-links">
+      <a class="game-card game1" a href="https://fukuyo-0sb9.onrender.com/" target="_blank">
+        <div class="card-content">
+          <h2>0 to 100 ゲーム</h2>
+          <p>出題者がお題から思い浮かべた物をみんなで予想しあうゲームです</p>
+        </div>
+      </a>
+
+      <a class="game-card game2" href="https://fukuyo-0sb9.onrender.com/" target="_blank">
+        <div class="card-content">
+          <h2>ブラジー将棋</h2>
+          <p>時間無制限 チーム戦が可能な将棋です</p>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // ローディングアニメーション処理
+    window.addEventListener("load", () => {
+      document.querySelector(".loading-screen").classList.add("fade-out");
+      setTimeout(() => {
+        document.querySelector(".loading-screen").style.display = "none";
+        document.querySelector(".content").classList.add("fade-in");
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>
