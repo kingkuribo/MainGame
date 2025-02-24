@@ -162,8 +162,4 @@ body {
   .card-content {
     padding: 0.5rem; /* テキスト部分を少しコンパクトに */
   }
-
-  .card-content h2 a {
-    font-size: 1.2rem; /* タイトルを少し小さく */
-  }
 }
