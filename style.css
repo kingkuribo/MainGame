@@ -147,6 +147,31 @@ body {
 
 /* ==== スマホ向けの調整（横幅600px以下） ==== */
 @media (max-width: 600px) {
+  /* ゲームコンテナをフレックスで縦並びにし、高さを可変に */
+  #game-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: static; /* absolute をやめる */
+  }
+
+  /* 持ち駒テーブル (相手/自分とも) を position: static にし、
+   board と重ならないよう上・下に並べる */
+  #game-container table#coughtpieces:first-of-type,
+  #game-container table#coughtpieces:last-of-type {
+    position: static;
+    margin: 10px 0;
+  }
+
+  /* 将棋盤も position: static にして中央寄せ */
+  #board {
+    position: static;
+    margin: 0 auto;
+    transform: none; /* translate(-50%, -50%) を解除 */
+  }
+
   .game-links {
     flex-direction: column; /* 縦並びに */
     gap: 1rem; /* カードの間隔を少し狭く */
